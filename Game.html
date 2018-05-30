@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Hauntd House</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Haunted House Game</h1>
+            <p>You are stuck in a haunted mansion... choose your path.</p>
+
+            <p>
+                <button type="button" class="btn btn-default" id="door1">Door to the left.</button>
+                <button type="button" class="btn btn-default" id="door2">Door in front of you.</button>
+                <button type="dadbutton" class="btn btn-default" id="door3">Door to the right.</button>
+                <button type="button" class="btn btn-default" id="door4">Stairwell upward.</button>
+                <button type="button" class="btn btn-default" id="door5">Stairwell downward.</button>
+            </p>
+                <div id="ties">0 rooms.</div>
+
+
+            <p></p>
+            <input type="button" value="Play" class="btn btn-primary" id="play">
+            <p></p>
+            <div id="result"></div>
+            <div id="scoreboard">
+              <table class="table">
+                <tr>
+                    <td>Escapes:</td>
+                    <td>Failures:</td>
+
+                </tr>
+                <tr>
+                    <td id="wins">0</td>
+                    <td id="losses">0</td>
+
+                </tr>
+              </table>
+            </div>
+        </div>
+    </body>
+    <script src="Game.js"></script>
+</html>
