@@ -9,7 +9,7 @@ var choices = ["the door to the left", "the door in front of you", "the door to 
 // Variable to store the score
 // score[0] = wins, score[1] = ties, score[2] = losses
 
-var score = [0,0,0];
+var score = [0, 0, 0];
 document.getElementById('play').disabled = true;
 // Stores the player's choice, then call's the function for storing the computer's choice
 function storePlayerChoice(choice) {
@@ -21,47 +21,54 @@ function storePlayerChoice(choice) {
 
 // Generate computer's random choice
 function storeComputerChoice() {
-    computerChoice = Math.floor(Math.random()*3);
+    computerChoice = Math.floor(Math.random() * 3);
     console.log("Computer choice = " + computerChoice);
 }
 
 // This is the function for playing the game
-function playGame(){
+function playGame() {
     // Here is the game ruleset algorithm
     if (playerChoice == computerChoice) {
         // We have a tie!
         updateScore(1);
-        displayGameResult("tie")
+        displayGameResult("tie");
     } else if (playerChoice == 0 && (computerChoice == 2 || computerChoice == 3)) {
         // Rock beats scissors - a win!
+        score[1] = 0;
         updateScore(0);
-        displayGameResult("win")
+        displayGameResult("win");
     } else if (playerChoice == 1 && (computerChoice == 0 || computerChoice == 4)) {
         // Paper beats scissors - a win!
+        score[1] = 0;
         updateScore(0);
-        displayGameResult("win")
+        displayGameResult("win");
     } else if (playerChoice == 2 && (computerChoice == 1 || computerChoice == 3)) {
         // Scissors beats paper - a win!
+        score[1] = 0;
         updateScore(0);
-        displayGameResult("win")
-    } else if (playerChoice == 3 && (computerChoice == 3 || computerChoice == 2)){
+        displayGameResult("win");
+    } else if (playerChoice == 3 && (computerChoice == 3 || computerChoice == 2)) {
+
         // 3 is lizard
+        score[1] = 0;
         updateScore(0);
-        displayGameResult("win")
+        displayGameResult("win");
+        score[1] = 0;
     } else if (playerChoice === 4 && (computerChoice == 2 || computerChoice == 0)) {
-         updateScore(0);
-        displayGameResult("win")
-    }
-    else {
+        score[1] = 0;
+        updateScore(0);
+        displayGameResult("win");
+    } else {
         // All other combinations are losses
+        score[1] = 0;
         updateScore(2);
         displayGameResult("lose")
-        score[1] = 0;
+
     }
 }
 
 //Displays the result of the game
-function displayGameResult(result){
+function displayGameResult(result) {
     // Define an array of text labels for the choices 0, 1, 2;
     // Create a message for the player
     var message = "You went for " + choices[playerChoice] + " and the way out was " + choices[computerChoice] + ".";
@@ -84,15 +91,16 @@ function displayGameResult(result){
 }
 
 // Updates the score
-function updateScore(val){
+function updateScore(val) {
     ++score[val];
     console.log("The score is now " + score);
 }
 
 // Function for displaying the score
-function updateScoreBoard(){
+function updateScoreBoard() {
     document.getElementById("wins").textContent = score[0];
     document.getElementById("losses").textContent = score[2];
+
     document.getElementById("ties").textContent = score[1] + " rooms.";
 }
 
@@ -105,9 +113,21 @@ var door5 = document.getElementById("door5");
 var playButton = document.getElementById("play");
 
 // Add the event handlers
-door1.addEventListener('click', () => {storePlayerChoice(0)});
-door2.addEventListener('click', () => {storePlayerChoice(1)});
-door3.addEventListener('click', () => {storePlayerChoice(2)});
-door4.addEventListener('click', () => {storePlayerChoice(3)});
-door5.addEventListener('click', () => {storePlayerChoice(4)});
-playButton.addEventListener('click', () => {playGame()});
+door1.addEventListener('click', () => {
+    storePlayerChoice(0)
+});
+door2.addEventListener('click', () => {
+    storePlayerChoice(1)
+});
+door3.addEventListener('click', () => {
+    storePlayerChoice(2)
+});
+door4.addEventListener('click', () => {
+    storePlayerChoice(3)
+});
+door5.addEventListener('click', () => {
+    storePlayerChoice(4)
+});
+playButton.addEventListener('click', () => {
+    playGame()
+});
