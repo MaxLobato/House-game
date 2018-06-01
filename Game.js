@@ -28,6 +28,7 @@ function storeComputerChoice() {
 // This is the function for playing the game
 function playGame() {
     // Here is the game ruleset algorithm
+    document.getElementById('play').disabled = true;
     if (playerChoice == computerChoice) {
         // We have a tie!
         updateScore(1);
