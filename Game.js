@@ -54,6 +54,7 @@ function playGame() {
         updateScore(0);
         displayGameResult("win");
         score[1] = 0;
+
     } else if (playerChoice === 4 && (computerChoice == 2 || computerChoice == 0)) {
         score[1] = 0;
         updateScore(0);
